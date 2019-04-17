@@ -1,2 +1,8 @@
 
 <p>テスト</p>
+
+<% unless logged_in? %>
+
+<%= link_to 'レシピを投稿する', signup_path %>
+
+<% end %>
