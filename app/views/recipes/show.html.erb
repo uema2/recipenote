@@ -1,0 +1,8 @@
+<h1>
+  <%= @recipe.title %>
+</h1>
+<P><%= @recipe.description %></P>
+
+<%= link_to '戻る', root_path, class: 'btn btn-default' %>
+<%= link_to '編集', edit_recipe_path, class: 'btn btn-default' %>
+<%= link_to '削除', recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger' %>
