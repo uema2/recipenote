@@ -10,14 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190418052512) do
+ActiveRecord::Schema.define(version: 20190418093445) do
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
+    t.text     "description",        limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.bigint   "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
