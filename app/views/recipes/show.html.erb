@@ -1,9 +1,56 @@
+<div class="recipe_detail">
+  <div class="recipe_top">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @recipe.image.url %>
+      </div>
+      <div class="col-md-offset-1 col-md-7">
+        <div id="recipe_info">
+          <h1><%= @recipe.title %></h1>
+          </br>
+          <p><%= @recipe.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    
+    <div class="col-md-6">
+      <div id="ingredients">
+        <h1>材料</h1>
+        <div class="row">
+          <table class="table table-striped">
+            <tr>
+              <th>材料名</th>
+              <th>分量</th>
+            </tr>
+            <% @recipe.ingredients.each do |ingredient|  %>
+              <tr>
+                <td><%= ingredient.name %></td>
+                <td><%= ingredient.amount %></td>
+              </tr>
+            <% end %>
+          </table>
+          
+        </div>
+      </div> 
+    </div>
+    
+    <div class="col-md-6">
+      <div id="directions">
+        <h1>手順</h1>
+        <ol>
+          <% @recipe.directions.each do |direction| %>
+            <li><%= direction.step %></li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+    
+  </div>
+</div>
 
-<%= image_tag @recipe.image.url %>
-<h1>
-  <%= @recipe.title %>
-</h1>
-<P><%= @recipe.description %></P>
 
 <%= link_to '戻る', root_path, class: 'btn btn-default' %>
 <%= link_to '編集', edit_recipe_path, class: 'btn btn-default' %>
