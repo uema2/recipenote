@@ -9,10 +9,13 @@ class RecipesController < ApplicationController
   end
   
   def new
+    
     @recipe = Recipe.new
   end
   
   def create
+    
+ 
     @recipe = Recipe.new(recipe_params)
     
     if @recipe.save
@@ -44,7 +47,7 @@ class RecipesController < ApplicationController
   private
   
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image)
+    params.require(:recipe).permit(:title, :description, :image, directions_attributes: [:id, :step, :_destroy], ingredients_attributes: [:id, :name, :amount, :_destroy])
   end
   
   def find_recipe

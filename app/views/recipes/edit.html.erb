@@ -1,33 +1,11 @@
 <h1><%= @recipe.title %>の編集</h1>
-<div class="row">
-  <div class="col-xs-offset-2 col-xs-8">
-    <div class="panel panel-defaut">
-      <div class="panel-body">
-        
-        <%= form_for(@recipe) do |f| %>
-        
-          <div class="form-group">
-            <%= f.label :title, 'タイトル' %>
-            <%= f.text_field :title, class: 'form-control' %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.label :description, '説明' %>
-            <%= f.text_area :description, size: '100x5', class: 'form-control' %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.label :image, '画像をアップロード' %>
-            <%= f.file_field :image %>
-          </div>
-          
-          <%= f.submit '編集を確定', class: 'btn btn-primary' %>
-          
-          <%= render 'layouts/error_messages', model: f.object %>
-        
-        <% end %>
-        
-      </div>
-    </div>
+
+<div class="panel panel-defaut">
+  <div class="panel-body">
+    
+   <%= render 'form' %>
+   </br>
+   <%= link_to '戻る', recipe_path, class: 'btn btn-default' %>
+    
   </div>
 </div>

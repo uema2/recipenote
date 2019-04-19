@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :name, "・" %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :amount, "ー" %>
+      <%= f.text_field :amount, class: 'form-control' %>
+    </div>
+    <%= link_to_remove_association "X", f, class: 'btn btn-default' %>
+  </div>
+  </br>
+</div>
