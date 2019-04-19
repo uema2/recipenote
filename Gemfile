@@ -55,3 +55,4 @@ gem 'kaminari'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem "mini_magick"
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
+gem 'pry-byebug', group: :development
