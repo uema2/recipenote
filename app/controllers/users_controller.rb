@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @recipe = @user.recipes.order('updated_at DESC')
   end
 
   def new

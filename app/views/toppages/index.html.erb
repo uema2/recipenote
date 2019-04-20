@@ -1,11 +1,12 @@
 
-<p>テスト</p>
 
 <% unless logged_in? %>
 
-<%= link_to 'レシピを投稿する', signup_path %>
-
+<div class="text-center">
+  <%= link_to 'レシピを投稿する', signup_path, class:'btn btn-primary' %>
+</div>
 
 <% end %>
+</br>
 
-<%= link_to 'レシピ一覧', recipes_path %>
+<%= render 'recipes/recipes', recipes: @recipe %>

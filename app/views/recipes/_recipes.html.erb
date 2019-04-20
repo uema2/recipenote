@@ -1,0 +1,19 @@
+<% if recipes %>
+  <div class="row">
+    <% @recipe.each do |recipe| %>
+      <div class="recipe">
+        <div class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <%= link_to image_tag(recipe.image.url,:class => "img-responsive center-block "), recipe %>
+            </div>
+            <div class="panel-body">
+              <%= link_to recipe.title, recipe %>
+              <p><%= recipe.updated_at.strftime('%Y/%m/%d')  %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
