@@ -1,22 +1,22 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
   
   def index
     @recipe = Recipe.all.order('created_at DESC')
   end
   
   def show
+    @user = @recipe.user
   end
   
   def new
-    
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
   
   def create
-    
- 
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     
     if @recipe.save
       flash[:success] = 'レシピを投稿しました。'
@@ -53,4 +53,12 @@ class RecipesController < ApplicationController
   def find_recipe
     @recipe = Recipe.find(params[:id])
   end
+  
+  def correct_user
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    unless @recipe
+      redirect_to root_url
+    end
+  end
+
 end
