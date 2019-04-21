@@ -1,0 +1,10 @@
+<% if current_user.fav_recipe?(recipe) %>
+  <%= form_for(current_user.favorites.find_by(recipe_id: recipe.id), html: { method: :delete}) do |f| %>
+  <%= f.submit 'お気に入りを解除', class: 'btn btn-danger' %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.favorites.build) do |f| %>
+    <%= hidden_field_tag :recipe_id, recipe.id %>
+    <%= f.submit 'お気に入り', class: 'btn btn-defoult' %>
+  <% end %>
+<% end %>

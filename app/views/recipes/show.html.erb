@@ -7,6 +7,10 @@
       <div class="col-md-offset-1 col-md-7">
         <div id="recipe_info">
           <h1><%= @recipe.title %></h1>
+          <% if logged_in? %>
+            <%= render 'favorites/like_button', recipe: @recipe %>
+          <% end %>
+          <p>お気に入り数:<%= @count_fav %></p>
           </br>
           <p>レシピ作成者：<%= link_to @recipe.user.name, user_path(@user) %></p>
           <p><%= @recipe.description %></p>

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <h1><%= @user.name %>のお気に入りレシピ<span class="badge"><%= @count_fav_recipes %></span></h1>
+    <% if @fav_recipes.any? %>
+      <ul class="media-list">
+        <% @fav_recipes.each do |recipe| %>
+          <li class="media">
+            <div>
+              <%= link_to recipe.title, recipe_path(recipe) %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <%= paginate @fav_recipes %>
+    <% end %>
+  </div>
+</div>
