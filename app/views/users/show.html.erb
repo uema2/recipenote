@@ -1,7 +1,18 @@
 <div class="user-profile">
   <div class="name text-center">
     <h1><%= @user.name %></h1>
+    <% if logged_in? %>
+      <%= render 'relationships/follow_button', user: @user %>
+    <% end %>
+    </br>
+    <div class="user_follow">
+      <%= link_to @count_followings, followings_user_path(@user) %>フォロー中
+    
+      <%= link_to @count_followers, followers_user_path(@user) %>フォロワー
+    </div>
+    
   </div>
   </br>
+  <h3>レシピ一覧<span class="badge"><%= @count_recipes %></span></h3>
   <%= render 'recipes/recipes', recipes: @recipe %>
 </div>
