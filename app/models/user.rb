@@ -25,6 +25,6 @@ class User < ApplicationRecord
   end
   
   def following?(other_user)
-    self.followings.included?(other_user)
+    self.followings.include?(other_user)
   end
 end
