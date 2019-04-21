@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   
   def show
     @user = @recipe.user
+    count(@recipe)
   end
   
   def new

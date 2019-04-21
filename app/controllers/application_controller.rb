@@ -15,5 +15,10 @@ class ApplicationController < ActionController::Base
     @count_recipes = user.recipes.count
     @count_followings = user.followings.count
     @count_followers = user.followers.count
+    @count_fav_recipes = user.fav_recipes.count
+  end
+  
+  def count(recipe)
+    @count_fav = recipe.users.count
   end
 end
