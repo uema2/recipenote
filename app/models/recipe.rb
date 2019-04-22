@@ -16,4 +16,12 @@ class Recipe < ApplicationRecord
   
   has_many :favorites, foreign_key: 'recipe_id', dependent: :destroy
   has_many :users, through: :favorites
+  
+  def self.search(search)
+    if search
+      where(['title LIKE ? OR description LIKE?', "%#{search}%", "%#{search}%"])
+    else
+      all
+    end
+  end
 end

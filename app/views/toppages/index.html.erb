@@ -8,5 +8,21 @@
 
 <% end %>
 </br>
+<div class="text-center">
+  <p>検索機能</p>
+
+  <%= form_tag root_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "検索", :name => nil %>
+    </p>
+  <% end %>
+</div>
+
+
+
+</br>
 
 <%= render 'recipes/recipes', recipes: @recipe %>
+
+<%= paginate @recipe %>
