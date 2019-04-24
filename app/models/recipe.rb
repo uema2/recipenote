@@ -8,8 +8,8 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :directions, reject_if: :all_blank, allow_destroy: true
   
-  validates :title, presence: true, length: {maximum: 20 }
-  validates :description, presence: true, length: {maximum: 100 }
+  validates :title, presence: true, length: {maximum: 30 }
+  validates :description, presence: true, length: {maximum: 255 }
   validates :image, presence: true
   
   mount_uploader :image, ImageUploader
