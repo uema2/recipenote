@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @recipe = @user.recipes.order('updated_at DESC')
+    @recipe = @user.recipes.order('updated_at DESC').page(params[:page]).per(12)
     counts(@user)
   end
 

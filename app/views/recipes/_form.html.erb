@@ -1,24 +1,24 @@
 <%= form_for(@recipe) do |f| %>
         
   <div class="form-group">
-    <%= f.label :title, 'タイトル' %>
+    <%= f.label :title, 'タイトル(30字以内)*' %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :description, '説明' %>
+    <%= f.label :description, '説明*' %>
     <%= f.text_area :description, size: '100x5', class: 'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :image, '画像をアップロード' %>
+    <%= f.label :image, '画像をアップロード*' %>
     <%= f.file_field :image %>
   </div>
   
   
   
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-sm-6">
       <h3>材料</h3>
       <div id="ingredients">
         <%= f.fields_for :ingredients do |ingredient| %>
@@ -30,7 +30,7 @@
       </div>
     </div>
     
-    <div class="col-xs-6">
+    <div class="col-sm-6">
       <h3>手順</h3>
       <div id="directions">
         <%= f.fields_for :directions do |direction| %>

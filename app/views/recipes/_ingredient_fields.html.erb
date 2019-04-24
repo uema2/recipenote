@@ -1,12 +1,10 @@
 <div class="nested-fields">
   <div class="form-inline">
     <div class="form-group">
-      <%= f.label :name, "・" %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: '材料名' %>
     </div>
     <div class="form-group">
-      <%= f.label :amount, "ー" %>
-      <%= f.text_field :amount, class: 'form-control' %>
+      <%= f.text_field :amount, class: 'form-control', placeholder: '分量' %>
     </div>
     <%= link_to_remove_association "X", f, class: 'btn btn-default' %>
   </div>

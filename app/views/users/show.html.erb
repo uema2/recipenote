@@ -1,5 +1,5 @@
 <div class="user-profile">
-  <div class="name text-center">
+  <div class="user_top text-center">
     <h1><%= @user.name %></h1>
     <% if logged_in? %>
       <%= render 'relationships/follow_button', user: @user %>
@@ -16,5 +16,8 @@
   </div>
   </br>
   <h3>レシピ一覧<span class="badge"><%= @count_recipes %></span></h3>
+  
   <%= render 'recipes/recipes', recipes: @recipe %>
+  
+  <div class="text-center"><%= paginate @recipe %></div>
 </div>

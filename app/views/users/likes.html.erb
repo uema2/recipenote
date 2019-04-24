@@ -1,17 +1,24 @@
-<div class="row">
-  <div class="col-xs-offset-3 col-xs-6">
-    <h1><%= @user.name %>のお気に入りレシピ<span class="badge"><%= @count_fav_recipes %></span></h1>
+<div class="favorite_recipe">
+    <div class="user-info text-center">
+      <h1><%= @user.name %>のお気に入りレシピ<span class="badge"><%= @count_fav_recipes %></span></h1>
+    </div>
     <% if @fav_recipes.any? %>
-      <ul class="media-list">
+      <div class="row">
         <% @fav_recipes.each do |recipe| %>
-          <li class="media">
-            <div>
-              <%= link_to recipe.title, recipe_path(recipe) %>
+          <div class="col-xs-3">
+            <div class="panel panel-heading">
+              <%= link_to image_tag(recipe.image.url,:class => "img-responsive"), recipe %>
             </div>
-          </li>
+            <div class="panel-body">
+              <div class="recipe_title"><%= link_to recipe.title, recipe %></div>
+            </div>
+          </div>
         <% end %>
-      </ul>
-      <%= paginate @fav_recipes %>
+        
+        <div class="text-center"><%= paginate @fav_recipes %></div>
+      </div>    
+      
     <% end %>
-  </div>
+    </br>
+    <%= link_to '戻る', user_path, class: 'btn btn-default' %>
 </div>

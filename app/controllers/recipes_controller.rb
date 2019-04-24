@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
+    @recipe = Recipe.all.order('updated_at DESC').page(params[:page]).per(12)
   end
   
   def show

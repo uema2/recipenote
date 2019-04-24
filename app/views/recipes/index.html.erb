@@ -1,1 +1,5 @@
-<p>a</p>
+<h2 class="text-center">レシピ一覧</h2>
+</br>
+
+<%= render 'recipes', recipes: @recipe %>
+<div class="text-center"><%= paginate @recipe %></div>

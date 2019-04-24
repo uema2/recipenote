@@ -1,28 +1,32 @@
+<%= content_for :cover do %>
 
-
-<% unless logged_in? %>
-
-<div class="text-center">
-  <%= link_to 'レシピを投稿する', signup_path, class:'btn btn-primary' %>
-</div>
-
+ <div class="cover">
+   <div class="cover-inner">
+     <div class="cover-contents">
+       <h1>とっておきの共有</h1>
+        <% unless logged_in? %>
+          <%= link_to 'レシピを投稿する', signup_path, class:'btn btn-primary' %>
+        <% end %>
+     </div>
+   </div>
+ </div>
 <% end %>
-</br>
-<div class="text-center">
-  <p>検索機能</p>
 
+</br>
+<div class="text-center search_form">
+  <div class="search_text">
+    <h3>今日なに作る？</h3>
+  </div>
   <%= form_tag root_path, :method => 'get' do %>
     <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "検索", :name => nil %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+      <%= submit_tag "検索", :name => nil, class: 'btn btn-default' %>
     </p>
   <% end %>
 </div>
-
-
-
+</br>
 </br>
 
 <%= render 'recipes/recipes', recipes: @recipe %>
 
-<%= paginate @recipe %>
+<div class="text-center"><%= paginate @recipe %></div>

@@ -1,8 +1,7 @@
 <div class="nested-fields">
   <div class="form-inline">
     <div class="form-group">
-      <%= f.label :step, "・" %>
-      <%= f.text_field :step, class: 'form-control' %>
+      <%= f.text_area :step, size: '30x3',class: 'form-control', placeholder: '作り方' %>
     </div>
     <%= link_to_remove_association "X", f, class: 'btn btn-default' %>
   </div>

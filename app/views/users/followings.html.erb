@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-xs-offset-3 col-xs-6">
-    <h1><%= @user.name %>：フォロー中<span class="badge"><%= @count_followings %></span></h1>
+    <div class="user-info text-center">
+      <h1><%= @user.name %>：フォロー中<span class="badge"><%= @count_followings %></span></h1>
+    </div>
     <% if @followings.any? %>
       <ul class="media-list">
         <% @followings.each do |user| %>
@@ -11,7 +13,9 @@
           </li>
         <% end %>
       </ul>
-      <%= paginate @followings %>
+      <div class="text-center"><%= paginate @followings %></div>
     <% end %>
+    </br>
+    <%= link_to '戻る', user_path, class: 'btn btn-default' %>
   </div>
 </div>
