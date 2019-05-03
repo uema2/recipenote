@@ -11,6 +11,7 @@ class Recipe < ApplicationRecord
   validates :title, presence: true, length: {maximum: 30 }
   validates :description, presence: true, length: {maximum: 255 }
   validates :image, presence: true
+  validate :image_size
   
   mount_uploader :image, ImageUploader
   
@@ -22,6 +23,12 @@ class Recipe < ApplicationRecord
       where(['title LIKE ? OR description LIKE?', "%#{search}%", "%#{search}%"])
     else
       all
+    end
+  end
+  
+  def image_size
+    if image.size > 5 .megabytes
+      errors.add(:image, "should be less than 5MB")
     end
   end
 end
